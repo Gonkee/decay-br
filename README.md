@@ -29,7 +29,9 @@ The server has access to `add_updatable()` and `delete_updatable()`, which adds/
 
 ## PlayerBasic.gd and PlayerController.gd
 
-There are two separate scripts for the main player controlled by the user in the current game (`PlayerController.gd`) and for the other players not controlled by the current game, but by peers over the network (`PlayerBasic.gd`).
+There are two separate scripts:
+- for the main player controlled by the user in the current game (`PlayerController.gd`)
+- and for the other players not controlled by the current game, but by peers over the network (`PlayerBasic.gd`).
 
 `PlayerController.gd` inherits `PlayerBasic.gd`, so the two share the same basic functionality, but the Controller builds more functionality on top over the Basics.
 
@@ -40,3 +42,52 @@ Both scripts have different versions of some same functions, such as `take_damag
 `take_damage()` - In the `Basic`, this functions simply calls itself (the same function) in the network peer that actually controls the player. In that game instance there would be the `Controller` and its version of this function, which actually updates the values and does something.
 
 `die()` - This function only has one version, in `Basic`, meaning both scripts do the same thing when it's called. However, if it detects that the player is actually the main player being controlled in the game through `is_network_master()` (`set_network_master(my_id)` would have been called in `_ready()`), it calls itself in the other peers (the `Basic`, un-controlled versions of itself) through `rpc("die")` to ensure that the same player is synced properly over all the network peers.
+
+## Inventory.gd
+
+Each player object has an Inventory node, no matter if it's a `Basic` or `Controller`. This Inventory node contains the player's current equipped weapon, and as you may imagine, the same Inventory over different network peers must be synced properly.
+
+The equipped weapon is the `current_equipped` object in the script. When you switch weapons, the Inventory script calls `unequip()` in `current_equipped` and sets `current_equipped` to a new gun.
+
+There's a problem: all guns are named `Weapon`, so when you've switched guns and try to keep updating the gun's values over the network through `rpc()`, `rpc()` has a hard time finding the right `Weapon` to call. To fix this, `Inventory.gd` has a value called `equipped_id` that starts at 0 and increases by one every time the player switches weapons. All weapons that are equipped in the Inventory (including the first one) will be named using that value, including the same weapons in the other network peers, so `rpc()` will always find the right gun to update.
+
+## Gun.gd
+
+The gun script has a bunch of functions such as `fire()` and `reload()`, as you may expect. When `unequip()` is called, it adds a new `updatable` in the Game scene (a dropped weapon - `GunDummy.tscn` with the right values such as gun type and ammo), and `queue_free()`'s.
+
+## Basic and Controller in the Inventory and Gun
+
+The Inventory and Gun script have a similar  principle to the Player scripts as in their functionalities are different according to whether it is controlled by the current game (`Controller`) or some peer over the network (`Basic`). However, they don't have two separate scripts like the Player (yet). To separate the functionality, these scripts test for whether they are a `Controller` or `Basic` within functions. For example:
+
+```
+func do_some_gun_things():
+
+  # Basic section - used by both versions
+  animation()
+  look_cool()
+  
+  if not ParentPlayer.is_network_master():
+    return
+  
+  # Controller section - used by only Controller
+  if clicked():
+    fire()
+  if right_clicked():
+    aim()
+  if pressed(KEY_R):
+    reload()
+```
+
+or:
+
+```
+remote func fire(): # remote as this function is needed by rpc()
+
+  # Basic section - used by both versions
+  fire_animation()
+  look_cool()
+  
+  # Controller section - used by only Controller
+  if ParentPlayer.is_network_master():
+    rpc("fire")
+```
