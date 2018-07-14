@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Player/PlayerBasic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Player/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=3]
+
+[node name="Player" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="FPV" type="Camera" parent="Head" index="1"]
+
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 90.0
+size = 1.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="PickupCast" type="RayCast" parent="Head/FPV" index="0"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector3( 0, 0, -6 )
+collision_mask = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="HUD" parent="Head/FPV" index="1" instance=ExtResource( 3 )]
+
+visible = false
+
+

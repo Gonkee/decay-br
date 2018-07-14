@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Pellet_Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sounds/shotgun.ogg" type="AudioStream" id=2]
+
+
+
+[node name="Weapon" instance=ExtResource( 1 )]
+
+editor/display_folded = true
+fire_rate = 1
+v_recoil = 60
+h_recoil = 80
+mag_size = 5
+damage = 7
+model_position = Vector3( 0.4, -0.4, -0.7 )
+ads_model_position = Vector3( 0, -0.35, -0.75 )
+scene_path = "res://Scenes/Weapons/Shotgun.tscn"
+model_path = "res://ModelObjects/ShotgunModel.tscn"
+sound = ExtResource( 2 )
+pellet_spread_degrees = 4
+
+

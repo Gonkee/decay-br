@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sounds/silenced gun.ogg" type="AudioStream" id=2]
+
+
+
+[node name="Weapon" instance=ExtResource( 1 )]
+
+fire_rate = 5
+v_recoil = 40
+h_recoil = 40
+mag_size = 12
+damage = 20
+model_position = Vector3( 0.6, -0.4, -1.2 )
+ads_model_position = Vector3( 0, -0.29, -1.4 )
+scene_path = "res://Scenes/Weapons/Pistol.tscn"
+model_path = "res://ModelObjects/PistolModel.tscn"
+sound = ExtResource( 2 )
+
+

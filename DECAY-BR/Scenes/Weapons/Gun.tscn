@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Weapons/Gun.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/reload.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/error.ogg" type="AudioStream" id=3]
+
+
+
+[node name="Weapon" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+fire_rate = null
+v_recoil = null
+h_recoil = null
+mag_size = null
+damage = null
+model_position = null
+ads_model_position = null
+scene_path = null
+model_path = null
+sound = null
+
+[node name="GunCast" type="RayCast" parent="." index="0"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector3( 0, 0, -100 )
+collision_mask = 1
+
+[node name="GunTween" type="Tween" parent="." index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="GunSoundPlayer" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = null
+volume_db = -20.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="ReloadSoundPlayer" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 2 )
+volume_db = -4.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ErrorSoundPlayer" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = -4.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ReloadTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_reload_timer_finished"]
+
+
