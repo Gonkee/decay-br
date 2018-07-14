@@ -1,4 +1,4 @@
-# decay-br
+# DECAY-BR
 A failed (or unfinished, perhaps) Battle Royale game made in Godot 3
 
 # Info
