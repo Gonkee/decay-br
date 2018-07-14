@@ -1,0 +1,33 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/noise.jpg-5e559a3de7254f03410cc998a29601a1.s3tc.stex"
+path.etc2="res://.import/noise.jpg-5e559a3de7254f03410cc998a29601a1.etc2.stex"
+
+[deps]
+
+source_file="res://Shaders/Dissolve Shader/noise.jpg"
+source_md5="2658b4e07ae520ab7029c2b924599502"
+
+dest_files=[ "res://.import/noise.jpg-5e559a3de7254f03410cc998a29601a1.s3tc.stex", "res://.import/noise.jpg-5e559a3de7254f03410cc998a29601a1.etc2.stex" ]
+dest_md5="d80710eb5ccc2e5cff15171d84deb8f1"
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

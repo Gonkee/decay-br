@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gun sound.wav-913b754844d123dba30ee08900b11b5d.sample"
+
+[deps]
+
+source_file="res://Sounds/gun sound.wav"
+source_md5="47a8ff2d0b3fbc0cbae3177e6cff9de4"
+
+dest_files=[ "res://.import/gun sound.wav-913b754844d123dba30ee08900b11b5d.sample" ]
+dest_md5="72e05f89b9f7e56471613f572d45d458"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

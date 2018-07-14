@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/grass texture.png-644ed142c597aec950efeaf645e1ac32.stex"
+
+[deps]
+
+source_file="res://Textures/grass texture.png"
+source_md5="2e8cc1c469f7e760f891c800833c104e"
+
+dest_files=[ "res://.import/grass texture.png-644ed142c597aec950efeaf645e1ac32.stex" ]
+dest_md5="b410e7cc1da26b53fc0283efd4e94a1d"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

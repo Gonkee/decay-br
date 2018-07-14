@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/dirt texture.png-0e4b72e2050ee9fb3a07032b6b3d7585.stex"
+
+[deps]
+
+source_file="res://Textures/dirt texture.png"
+source_md5="a7d8eeb4109ac85427174406a2f9f54f"
+
+dest_files=[ "res://.import/dirt texture.png-0e4b72e2050ee9fb3a07032b6b3d7585.stex" ]
+dest_md5="74fad8567ee3c2c91f114698eead9566"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

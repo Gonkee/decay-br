@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/error.ogg-18c5af4416dcc52fdb2af7c151c854e7.oggstr"
+
+[deps]
+
+source_file="res://Sounds/error.ogg"
+source_md5="f9212b2a7d660caf1a4fdb162c3b3506"
+
+dest_files=[ "res://.import/error.ogg-18c5af4416dcc52fdb2af7c151c854e7.oggstr" ]
+dest_md5="42b89908d2d2412cda47bff361dfd5a7"
+
+[params]
+
+loop=false
+loop_offset=0
