@@ -1,6 +1,8 @@
 # DECAY-BR
 A failed (or unfinished, perhaps) Battle Royale game made in Godot 3
 
+![Screenshot](/DECAY-screenshot.png?raw=true "Screenshot")
+
 # Info
 
 ## Game Structure
